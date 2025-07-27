@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samunder Singh | Data Scientist & ML Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Modern portfolio design system with sophisticated colors and gradients */
+        :root {
+            /* Modern dark theme colors */
+            --background: 220 26% 6%;
+            --foreground: 210 40% 98%;
+            --card: 220 26% 8%;
+            --card-foreground: 210 40% 98%;
+            --popover: 220 26% 8%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 262 83% 58%;
+            --primary-foreground: 210 40% 98%;
+            --primary-glow: 262 83% 68%;
+            --secondary: 220 26% 14%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 220 26% 12%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 320 65% 52%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 220 26% 18%;
+            --input: 220 26% 14%;
+            --ring: 262 83% 58%;
+            --radius: 0.75rem;
+
+            /* Gradient definitions */
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+            --gradient-secondary: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+            --gradient-hero: linear-gradient(135deg, hsl(220 26% 6%) 0%, hsl(220 26% 8%) 50%, hsl(262 83% 8%) 100%);
+            --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 26% 10%) 100%);
+
+            /* Shadow definitions */
+            --shadow-elegant: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+            --shadow-glow: 0 0 60px hsl(var(--primary-glow) / 0.3);
+            --shadow-card: 0 10px 25px -5px hsl(220 26% 4% / 0.4);
+
+            /* Animation easing */
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        body {
+            background: var(--gradient-hero);
+            color: hsl(var(--foreground));
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Typography enhancements */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+        ::-webkit-scrollbar-thumb { 
+            background: hsl(var(--primary)); 
+            border-radius: 4px; 
+        }
+        ::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
+
+        /* Component styles */
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        .glass-card {
+            background: hsl(var(--card) / 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid hsl(var(--border) / 0.5);
+            box-shadow: var(--shadow-card);
+            border-radius: var(--radius);
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .glass-card:hover {
+            border-color: hsl(var(--primary) / 0.5);
+            box-shadow: var(--shadow-elegant);
+            transform: translateY(-2px);
+        }
+
+        .project-card {
+            background: var(--gradient-card);
+            transition: all 0.4s var(--ease-bounce);
+            transform-origin: center;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .nav-link:hover { color: hsl(var(--foreground)); }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--gradient-primary);
+            transition: width 0.3s var(--ease-smooth);
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-primary);
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s var(--ease-smooth);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            color: hsl(var(--primary-foreground));
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-glow:hover::before { left: 100%; }
+
+        .btn-outline {
+            border: 1px solid hsl(var(--primary) / 0.5);
+            color: hsl(var(--primary));
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-outline:hover {
+            background: hsl(var(--primary) / 0.1);
+            transform: translateY(-2px);
+        }
+
+        .skill-badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            background: hsl(var(--muted) / 0.5);
+            color: hsl(var(--muted-foreground));
+            border: 1px solid hsl(var(--border) / 0.5);
+            display: inline-block;
+        }
+
+        .skill-badge:hover {
+            background: hsl(var(--primary) / 0.1);
+            border-color: hsl(var(--primary) / 0.5);
+            color: hsl(var(--primary));
+            transform: scale(1.05);
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+        }
+
+        .card {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Animation keyframes */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s var(--ease-smooth) forwards;
+            opacity: 0;
+        }
+
+        .animation-delay-100 { animation-delay: 0.1s; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+
+        /* Form styles */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: hsl(var(--background) / 0.5);
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 0.5rem;
+            color: hsl(var(--foreground));
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+        }
+
+        .form-textarea {
+            resize: none;
+            min-height: 120px;
+        }
+
+        /* Responsive grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        @media (min-width: 768px) {
+            .md\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .md\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .md\\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+            .md\\:flex-row { flex-direction: row; }
+            .md\\:space-x-8 > * + * { margin-left: 2rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+            .lg\:w-1\/2      { width: 50%; }
+        }
+
+        /* Utility classes */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-x-6 > * + * { margin-left: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        .mt-8 { margin-top: 2rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .text-center { text-align: center; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        .text-muted { color: hsl(var(--muted-foreground)); }
+        .hidden { display: none; }
+        .fixed { position: fixed; }
+        .top-0 { top: 0; }
+        .w-full { width: 100%; }
+        .z-50 { z-index: 50; }
+        .min-h-screen { min-height: 100vh; }
+        .pt-16 { padding-top: 4rem; }
+        .gap-12 { gap: 3rem; }
+        .leading-relaxed { line-height: 1.625; }
+        .max-w-2xl { max-width: 42rem; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .rounded-full { border-radius: 9999px; }
+        .w-64 { width: 16rem; }
+        .h-64 { height: 16rem; }
+        .w-8 { width: 2rem; }
+        .h-8 { height: 2rem; }
+        .w-6 { width: 1.5rem; }
+        .h-6 { height: 1.5rem; }
+        .w-5 { width: 1.25rem; }
+        .h-5 { height: 1.25rem; }
+        .w-4 { width: 1rem; }
+        .h-4 { height: 1rem; }
+        .w-2 { width: 0.5rem; }
+        .h-2 { height: 0.5rem; }
+        .mr-2 { margin-right: 0.5rem; }
+        .mr-3 { margin-right: 0.75rem; }
+        .mr-4 { margin-right: 1rem; }
+        .ml-2 { margin-left: 0.5rem; }
+        .ml-1 { margin-left: 0.25rem; }
+        .-top-4 { top: -1rem; }
+        .-right-4 { right: -1rem; }
+        .-bottom-6 { bottom: -1.5rem; }
+        .-left-6 { left: -1.5rem; }
+        .opacity-80 { opacity: 0.8; }
+        .opacity-60 { opacity: 0.6; }
+        .border-t { border-top-width: 1px; }
+        .border-primary { border-color: hsl(var(--primary)); }
+
+        @media (max-width: 767px) {
+            .md\\:hidden { display: none; }
+            .mobile-menu { display: block; }
+        }
+
+        @media (min-width: 768px) {
+            .md\\:flex { display: flex; }
+            .mobile-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card" style="border-bottom: 1px solid hsl(var(--border) / 0.5);">
+        <div class="container">
+            <div class="flex justify-between items-center" style="height: 4rem;">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Samunder Singh</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="md:flex items-center space-x-8 hidden">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#contact" class="btn-glow" onclick="scrollToSection('#contact')">Get In Touch</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" style="width: 1.5rem; height: 1.5rem; color: hsl(var(--foreground));"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu hidden" style="border-top: 1px solid hsl(var(--border) / 0.5); padding: 1rem 0;">
+                <div class="space-y-4">
+                    <a href="#about" class="block nav-link">About</a>
+                    <a href="#experience" class="block nav-link">Experience</a>
+                    <a href="#projects" class="block nav-link">Projects</a>
+                    <a href="#skills" class="block nav-link">Skills</a>
+                    <a href="#contact" class="btn-glow" style="width: 100%; justify-content: center;">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 space-y-8 animate-fade-in-up">
+                    <div class="space-y-4">
+                        <h1 class="font-bold">
+                            Hi, I'm <span class="gradient-text">Samunder Singh</span>
+                        </h1>
+                        <h2 class="text-2xl font-semibold text-muted">
+                            Data Scientist & ML Engineer
+                        </h2>
+                        <p class="text-lg text-muted leading-relaxed max-w-2xl">
+                            Building intelligent systems and scalable machine learning solutions with expertise in 
+                            computer vision and deep learning. Transforming data into actionable insights.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col space-y-4" style="gap: 1rem;">
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="btn-glow">
+                                Get In Touch
+                                <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                            <a href="#projects" class="btn-outline">
+                                View Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avatar -->
+                <div class="lg:w-1/2 flex justify-center animate-fade-in-up animation-delay-200">
+                    <div class="relative">
+                        <div class="glass-card p-4 rounded-full animate-float" style="box-shadow: var(--shadow-glow);">
+                            <div class="w-64 h-64 rounded-full flex items-center justify-center" style="background: var(--gradient-primary);">
+                                <span style="color: hsl(var(--primary-foreground)); font-size: 4rem; font-weight: 700;">SS</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating elements -->
+                        <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full opacity-80 animate-float animation-delay-100" style="background: hsl(var(--accent));"></div>
+                        <div class="absolute -bottom-6 -left-6 w-6 h-6 rounded-full opacity-60 animate-float animation-delay-300" style="background: hsl(var(--primary-glow));"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container">
+            <h2 class="text-center mb-16 gradient-text animate-fade-in-up">About Me</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                <!-- Education Card -->
+                <div class="glass-card p-6 animate-fade-in-up animation-delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full mr-4" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="graduation-cap" class="w-6 h-6" style="color: hsl(var(--primary));"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Education</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <h4 class="font-medium">B.Tech in Electronics &amp; Communication</h4>
+                            <p class="text-muted">Tezpur University, Assam, India</p>
+                            <p class="text-muted" style="font-size: 0.875rem; opacity: 0.8;">2020 - 2024</p>
+                        </div>
+                        <ul class="list-disc list-inside text-muted space-y-1">
+                            <li><a href="https://www.coursera.org/account/accomplishments/verify/TU3M7QWV28FW" target="_blank" rel="noopener" class="underline hover:text-primary">Generative AI with Large Language Models – Certificate</a></li>
+                            <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/3PWEZ8XC8FHG" target="_blank" rel="noopener" class="underline hover:text-primary">Deep Learning Specialization – Certificate</a></li>
+                            <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/ESKL5T4G84LP" target="_blank" rel="noopener" class="underline hover:text-primary">Machine Learning Specialization – Certificate</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="lg:col-span-2 space-y-6 animate-fade-in-up animation-delay-200" style="grid-column: span 2;">
+                    <div class="space-y-4">
+                        <p class="text-lg text-muted leading-relaxed">
+                            I'm a passionate Data Scientist and Machine Learning Engineer with expertise in computer vision, 
+                            deep learning, and scalable ML systems. My journey in AI began during my engineering studies, 
+                            and I've since worked on diverse projects from object detection to LLM-based applications.
+                        </p>
+                        <p class="text-lg text-muted leading-relaxed">
+                            Currently, I'm working at Lincode.ai where I develop and deploy computer vision models for 
+                            industrial applications. I'm particularly interested in the intersection of deep learning and 
+                            systems engineering, building robust ML pipelines that scale across multiple GPUs and hosts.
+                        </p>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex flex-wrap gap-6 pt-4">
+                        <a href="https://linkedin.com/in/samunder-singh" target="_blank" class="flex items-center transition-colors" style="color: hsl(var(--primary));">
+                            <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/samthakur587" target="_blank" class="flex items-center text-muted transition-colors">
+                            <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                            GitHub
+                        </a>
+                        <a href="mailto:Samundersingh270@gmail.com" class="flex items-center text-muted transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container">
+            <h2 class="text-center mb-16 gradient-text animate-fade-in-up">Work Experience</h2>
+            
+            <div class="space-y-8">
+                <!-- Lincode.ai -->
+                <div class="glass-card p-8 animate-fade-in-up animation-delay-100" style="border-color: hsl(var(--primary) / 0.5);">
+                    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold"><a href="https://lincode.ai/" target="_blank" rel="noopener" class="underline hover:text-primary">Lincode.ai</a></h3>
+                            <div class="flex items-center text-muted">
+                                <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                                Bengaluru, India (Hybrid)
+                            </div>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="skill-badge flex items-center">
+                                <i data-lucide="calendar" class="w-3 h-3 mr-1"></i>
+                                May 2024 - Present
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">
+                                <i data-lucide="briefcase" class="w-3 h-3 mr-1"></i>
+                                Associate Data Scientist (May 2024 - Present)
+                            </span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Designed and deployed YOLO-v8 and DETR object-detection models for real-time visual inspection in production.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Built automated image-segmentation and OCR pipelines with PaddleOCR, improving text-extraction accuracy.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Fast-tracked to full-time; architected a CLIP-driven auto-labeling and anomaly-detection workflow, reducing manual labeling effort.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Optimized computer-vision pipelines for distributed multi-GPU and multi-node clusters, lowering inference latency.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Refactored Django + MongoDB back-end into a modular microservice architecture, accelerating deployment cycles.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Other experiences -->
+                <div class="glass-card p-8 animate-fade-in-up animation-delay-200">
+                    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold"><a href="https://github.com/CrossGL" target="_blank" rel="noopener" class="underline hover:text-primary">CrossGL</a></h3>
+                            <div class="flex items-center text-muted">
+                                <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                                Remote
+                            </div>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="skill-badge flex items-center">
+                                <i data-lucide="calendar" class="w-3 h-3 mr-1"></i>
+                                Jun 2024 - May 2025
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <span class="skill-badge">Open Source Developer</span>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Contributed to <a href="https://github.com/CrossGL/crosstl" target="_blank" rel="noopener" class="underline hover:text-primary">CrossTL</a>: implemented a universal shader intermediate representation (IR) CrossGL that enables translation between any shader language and the CrossGL IR, and back.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Enhanced the Metal, OpenGL, DirectX, and Vulkan translators, adding 25,000 lines of code across 64 commits.</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Helped develop Dyson—a dynamic compute router that dispatches workloads to any available device.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Continue with other experiences -->
+                <div class="glass-card p-8 animate-fade-in-up animation-delay-200">
+                    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold"><a href="https://github.com/ivy-llc/ivy" target="_blank" rel="noopener" class="underline hover:text-primary">Unify.AI</a></h3>
+                            <div class="flex items-center text-muted">
+                                <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                                Remote
+                            </div>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="skill-badge flex items-center">
+                                <i data-lucide="calendar" class="w-3 h-3 mr-1"></i>
+                                Jun 2023 - Present
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <span class="skill-badge">Open Source Developer</span>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Contributed <a href="https://github.com/ivy-llc/ivy/issues?q=is%3Apr+state%3Aclosed+author%3Asamthakur587" target="_blank" rel="noopener" class="underline hover:text-primary">80+ PRs</a> across JAX, PyTorch, TensorFlow, and PaddlePaddle</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Contributed in building LLM benchmarking chatbot with leaderboard and voting</span>
+                        </li>
+                        <li class="flex items-start text-muted">
+                            <div class="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0" style="background: hsl(var(--primary));"></div>
+                            <span>Contributed in intergrating the backend and ivy unfiy api with torch , jax , tensorflow , paddlepaddle and numpy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container">
+            <h2 class="text-center mb-16 gradient-text animate-fade-in-up">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sign Language Detection -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-100" style="border-color: hsl(var(--primary) / 0.5); height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Sign Language Detection</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">MediaPipe</span>
+                                <span class="skill-badge">TensorFlow</span>
+                                <span class="skill-badge">Flask</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/sign_detection" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        Translated real-time sign gestures into text using holistic landmark tracking with MediaPipe and TensorFlow.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                            Computer Vision
+                        </span>
+                        <a href="https://github.com/samthakur587/sign_detection" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Travel Chatbot -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-200" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Travel Chatbot with RAG</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">LangChain</span>
+                                <span class="skill-badge">OpenAI</span>
+                                <span class="skill-badge">Streamlit</span>
+                                <span class="skill-badge">RAG</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/travel-chatbot" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        Developed an LLM-based chatbot fetching weather and search information in real-time using LangChain and OpenAI.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                            NLP / LLM
+                        </span>
+                        <a href="https://github.com/samthakur587/travel-chatbot" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- YOLOv7 Custom Training -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-300" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">YOLOv7 Custom Training</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">YOLOv7</span>
+                                <span class="skill-badge">PyTorch</span>
+                                <span class="skill-badge">W&B</span>
+                                <span class="skill-badge">OpenCV</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/yolov7" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        Trained object detection model on custom aquarium dataset with comprehensive visual logging and monitoring.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                            Computer Vision
+                        </span>
+                        <a href="https://github.com/samthakur587/yolov7" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container">
+            <h2 class="text-center mb-16 gradient-text animate-fade-in-up">Technical Skills</h2>
+            
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Languages -->
+                <div class="glass-card p-6 animate-fade-in-up animation-delay-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-lucide="code" class="w-6 h-6 mr-3" style="color: #3b82f6;"></i>
+                        Languages
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">Python</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">SQL</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">C++</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">CUDA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML Frameworks -->
+                <div class="glass-card p-6 animate-fade-in-up animation-delay-200">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-lucide="brain" class="w-6 h-6 mr-3" style="color: #8b5cf6;"></i>
+                        ML Frameworks
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">PyTorch</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">TensorFlow</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">JAX</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">PaddlePaddle</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Vision -->
+                <div class="glass-card p-6 animate-fade-in-up animation-delay-300">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-lucide="eye" class="w-6 h-6 mr-3" style="color: #10b981;"></i>
+                        Computer Vision
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">YOLOv5/v7</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">CLIP</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">MediaPipe</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">OpenCV</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">PaddleOCR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="glass-card p-6 animate-fade-in-up animation-delay-400">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-lucide="server" class="w-6 h-6 mr-3" style="color: #f97316;"></i>
+                        Infrastructure
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">Docker</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">GitHub Actions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">GCP</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">AWS</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full mr-3" style="background: hsl(var(--primary));"></div>
+                            <span class="text-muted">Terraform</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web & Tools -->
+            <div class="glass-card p-8 animate-fade-in-up animation-delay-300 mb-16">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <i data-lucide="globe" class="w-6 h-6 mr-3" style="color: #06b6d4;"></i>
+                    Web & Tools
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <span class="skill-badge text-center">Django</span>
+                    <span class="skill-badge text-center">FastAPI</span>
+                    <span class="skill-badge text-center">Flask</span>
+                    <span class="skill-badge text-center">Streamlit</span>
+                    <span class="skill-badge text-center">Redis</span>
+                    <span class="skill-badge text-center">MongoDB</span>
+                    <span class="skill-badge text-center">PostgreSQL</span>
+                    <span class="skill-badge text-center">React</span>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="animate-fade-in-up animation-delay-400">
+                <h3 class="text-2xl font-bold text-center mb-8">Certifications</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--accent) / 0.1);">
+                                <i data-lucide="award" class="w-6 h-6" style="color: hsl(var(--accent));"></i>
+                            </div>
+                            <h4 class="text-lg font-bold"><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/3PWEZ8XC8FHG" target="_blank" rel="noopener" class="underline hover:text-primary">Deep Learning Specialization</a></h4>
+                        </div>
+                        <p class="text-muted">deeplearning.ai</p>
+                    </div>
+                    
+                    <div class="glass-card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--accent) / 0.1);">
+                                <i data-lucide="award" class="w-6 h-6" style="color: hsl(var(--accent));"></i>
+                            </div>
+                            <h4 class="text-lg font-bold"><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/ESKL5T4G84LP" target="_blank" rel="noopener" class="underline hover:text-primary">Machine Learning Specialization</a></h4>
+                        </div>
+                        <p class="text-muted">deeplearning.ai</p>
+                    </div>
+                    
+                    <div class="glass-card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--accent) / 0.1);">
+                                <i data-lucide="award" class="w-6 h-6" style="color: hsl(var(--accent));"></i>
+                            </div>
+                            <h4 class="text-lg font-bold"><a href="https://www.coursera.org/account/accomplishments/verify/TU3M7QWV28FW" target="_blank" rel="noopener" class="underline hover:text-primary">Generative AI with Large Language Models</a></h4>
+                        </div>
+                        <p class="text-muted">AWS, deeplearning.ai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20" style="background: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));">
+        <div class="container">
+            <h2 class="text-center mb-16 gradient-text animate-fade-in-up">Get In Touch</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Contact Info -->
+                <div class="space-y-8 animate-fade-in-up animation-delay-100">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Let's Connect!</h3>
+                        <p class="text-lg text-muted mb-8 leading-relaxed">
+                            I'm always open to discussing new projects, creative ideas, or opportunities 
+                            to be part of your vision. Feel free to reach out!
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <a href="mailto:Samundersingh270@gmail.com" class="flex items-center group">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--card)); color: #ef4444;">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted">Email</p>
+                                <p class="font-medium">Samundersingh270@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:+918741804051" class="flex items-center group">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--card)); color: #10b981;">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted">Phone</p>
+                                <p class="font-medium">+91-8741804051</p>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/samunder-singh" target="_blank" class="flex items-center group">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--card)); color: #3b82f6;">
+                                <i data-lucide="linkedin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted">LinkedIn</p>
+                                <p class="font-medium">linkedin.com/in/samunder-singh</p>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/samthakur587" target="_blank" class="flex items-center group">
+                            <div class="p-3 rounded-full mr-4" style="background: hsl(var(--card)); color: #6b7280;">
+                                <i data-lucide="github" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted">GitHub</p>
+                                <p class="font-medium">github.com/samthakur587</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center text-muted mt-8">
+                        <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+                        <span>Open to remote opportunities worldwide</span>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-card p-8 animate-fade-in-up animation-delay-200">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="space-y-2">
+                            <label for="name" style="color: hsl(var(--foreground)); font-weight: 500;">Name</label>
+                            <input
+                                id="name"
+                                name="name"
+                                class="form-input"
+                                placeholder="Your full name"
+                                required
+                            />
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="email" style="color: hsl(var(--foreground)); font-weight: 500;">Email</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                class="form-input"
+                                placeholder="your.email@example.com"
+                                required
+                            />
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="message" style="color: hsl(var(--foreground)); font-weight: 500;">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                class="form-input form-textarea"
+                                placeholder="Tell me about your project or how we can work together..."
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-glow" style="width: 100%; justify-content: center;">
+                            Send Message
+                            <i data-lucide="send" class="ml-2 w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t" style="border-color: hsl(var(--border) / 0.5); background: hsl(var(--card) / 0.5);">
+        <div class="container">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="flex items-center space-x-2 text-muted">
+                    <span>&copy; 2024 Samunder Singh. Made with</span>
+                    <i data-lucide="heart" class="w-4 h-4" style="color: hsl(var(--accent)); animation: pulse 2s infinite;"></i>
+                    <span>and HTML</span>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/samunder-singh" target="_blank" class="text-muted transition-colors">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://github.com/samthakur587" target="_blank" class="text-muted transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:Samundersingh270@gmail.com" class="text-muted transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="section-divider mt-6"></div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        function scrollToSection(targetId) {
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Scroll to target
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Add click listeners to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                scrollToSection(targetId);
+            });
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in-up');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+
+        // Add scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Trigger once on page load
+        window.addEventListener('load', animateOnScroll);
+
+        // Add hover effects for social links
+        document.querySelectorAll('a[href*="linkedin"], a[href*="github"], a[href*="mailto"]').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = 'hsl(var(--primary))';
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '';
+                this.style.transform = '';
+            });
+        });
+
+        // Add pulse animation to heart icon
+        const heartIcon = document.querySelector('[data-lucide="heart"]');
+        if (heartIcon) {
+            setInterval(() => {
+                heartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    heartIcon.style.transform = 'scale(1)';
+                }, 200);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
