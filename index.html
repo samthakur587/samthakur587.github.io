@@ -463,29 +463,14 @@
 
                 <!-- Avatar -->
                 <div class="lg:w-1/2 flex justify-center animate-fade-in-up animation-delay-200">
-                    <div class="relative">
-                        <div class="relative w-64 h-64">
-                            <!-- Gradient border effect -->
-                            <div class="absolute inset-0 rounded-full p-1" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);">
-                                <div class="relative w-full h-full rounded-full overflow-hidden bg-white/5 backdrop-blur-sm">
-                                    <!-- Profile image with fallback -->
-                                    <img 
-                                        src="https://drive.google.com/thumbnail?id=1-CwPjAMbYDHDUfOQhvLRGvHNjD5b0L7Z&sz=w1000" 
-                                        alt="Samunder Singh" 
-                                        class="w-full h-full object-cover"
-                                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Samunder+Singh&background=3b82f6&color=fff&size=512&font-size=0.5'"
-                                        loading="eager"
-                                    >
-                                </div>
-                            </div>
-                            <!-- Floating elements -->
-                            <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 animate-pulse"></div>
-                            <div class="absolute -bottom-2 -left-2 w-6 h-6 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 animate-pulse animation-delay-1000"></div>
-                        </div>
-                        
-                        <!-- Floating elements -->
-                        <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full opacity-80 animate-float animation-delay-100" style="background: hsl(var(--accent));"></div>
-                        <div class="absolute -bottom-6 -left-6 w-6 h-6 rounded-full opacity-60 animate-float animation-delay-300" style="background: hsl(var(--primary-glow));"></div>
+                    <div class="w-64 h-64 rounded-full overflow-hidden shadow-2xl" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+                        <img 
+                            src="https://drive.google.com/thumbnail?id=1-CwPjAMbYDHDUfOQhvLRGvHNjD5b0L7Z&sz=w1000" 
+                            alt="Samunder Singh" 
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Samunder+Singh&background=3b82f6&color=fff&size=512&font-size=0.5'"
+                            loading="eager"
+                        />
                     </div>
                 </div>
             </div>
