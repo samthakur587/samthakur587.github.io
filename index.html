@@ -400,11 +400,15 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="md:flex items-center space-x-8 hidden">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="nav-link">About</a>
                     <a href="#experience" class="nav-link">Experience</a>
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#skills" class="nav-link">Skills</a>
+                    <a href="samunder_resume.pdf" download class="btn-primary group inline-flex items-center px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm">
+                        <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                        Resume
+                    </a>
                     <a href="#contact" class="btn-glow" onclick="scrollToSection('#contact')">Get In Touch</a>
                 </div>
 
@@ -416,11 +420,15 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu hidden" style="border-top: 1px solid hsl(var(--border) / 0.5); padding: 1rem 0;">
-                <div class="space-y-4">
+                <div class="md:hidden absolute top-full left-0 right-0 bg-background shadow-lg rounded-b-2xl p-4 space-y-4" :class="{ 'hidden': !isOpen }">
                     <a href="#about" class="block nav-link">About</a>
                     <a href="#experience" class="block nav-link">Experience</a>
                     <a href="#projects" class="block nav-link">Projects</a>
                     <a href="#skills" class="block nav-link">Skills</a>
+                    <a href="samunder_resume.pdf" download class="w-full btn-primary group inline-flex items-center justify-center px-4 py-2 rounded-full font-medium transition-all duration-300 mt-2">
+                        <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                        Download Resume
+                    </a>
                     <a href="#contact" class="btn-glow" style="width: 100%; justify-content: center;">Get In Touch</a>
                 </div>
             </div>
@@ -509,18 +517,20 @@
                 <div class="lg:col-span-2 space-y-6 animate-fade-in-up animation-delay-200" style="grid-column: span 2;">
                     <div class="space-y-4">
                         <p class="text-lg text-muted leading-relaxed">
-                            I'm a passionate Data Scientist and Machine Learning Engineer with expertise in computer vision, 
-                            deep learning, and scalable ML systems. My journey in AI began during my engineering studies, 
-                            and I've since worked on diverse projects from object detection to LLM-based applications.
+                            I am a Data Scientist with a strong background in computer vision, 
+                            deep learning, and scalable ML systems. Over the past year, I’ve developed and integrated 
+                            advanced models—including YOLO, DETR, and PaddleOCR—into production-grade inspection pipelines. 
+                            My work spans from designing self-supervised and unsupervised learning algorithms (e.g., 
+                            CLIP-based anomaly detection, auto-labeling) to scaling infrastructure across multi-GPU and 
+                            multi-host environments.
                         </p>
                         <p class="text-lg text-muted leading-relaxed">
-                            Currently, I'm working at Lincode.ai where I develop and deploy computer vision models for 
-                            industrial applications. I'm particularly interested in the intersection of deep learning and 
-                            systems engineering, building robust ML pipelines that scale across multiple GPUs and hosts.
+                            I bring hands-on experience with backend frameworks like Django and FastAPI, and technologies 
+                            such as MongoDB, Docker, and AWS, enabling seamless end-to-end deployment of AI solutions.
                         </p>
                         <p class="text-lg text-muted leading-relaxed">
-                            I'm also an active open source contributor, passionate about building tools that empower the developer community. 
-                            Transforming data into actionable insights while contributing to meaningful open source projects.
+                            In addition to my industry work, I'm an active contributor to the open-source ML community, 
+                            with 80+ pull requests merged into ivy, and contributions to keras and crossgl.
                         </p>
                     </div>
 
@@ -683,7 +693,7 @@
     <!-- Open Source Contributions Carousel -->
     <section class="py-16 bg-gradient-to-r from-gray-900 to-gray-800 overflow-hidden">
         <div class="container mx-auto px-4">
-            <h2 class="text-center text-3xl font-bold mb-12 text-white">Open Source Contributions</h2>
+            <h2 class="text-center text-3xl font-bold mb-12 text-white">My Open Source Contributions</h2>
             <div class="relative w-full">
                 <!-- Gradient overlays -->
                 <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-900 to-transparent z-10"></div>
@@ -810,8 +820,139 @@
     <section id="projects" class="py-20">
         <div class="container">
             <h2 class="text-center mb-16 gradient-text animate-fade-in-up">Featured Projects</h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SLX -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-100" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">SLX</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Slang</span>
+                                <span class="skill-badge">PyTorch</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">CUDA</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/SLX" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        A high-performance deep learning framework built on top of PyTorch, designed for efficient tensor operations with support for custom shader-based kernels through Slang.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="cpu" class="w-3 h-3 mr-1"></i>
+                            Deep Learning
+                        </span>
+                        <a href="https://github.com/samthakur587/SLX" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shruti-Drishti -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-200" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Shruti-Drishti</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">MediaPipe</span>
+                                <span class="skill-badge">TensorFlow</span>
+                                <span class="skill-badge">Flask</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/pranjalkar99/shruti-drishti" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        App for real-time ISL recognition using Mediapipe, CNN, and LSTM with 90%+ accuracy. Won award at Hasgeek hackathon for developing real-time Indian Sign Language detection using Mediapipe Holistic.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                            Computer Vision
+                        </span>
+                        <a href="https://github.com/pranjalkar99/shruti-drishti" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Edulens -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-200" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Edulens</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">FastAPI</span>
+                                <span class="skill-badge">Celery</span>
+                                <span class="skill-badge">Google OAuth</span>
+                                <span class="skill-badge">vetorDB</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/Edulens.git" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        Edulens is a FastAPI video analysis platform that uses ML for figure detection, OCR, and speech-to-text, with Google OAuth for secure access and Vectara integration for enhanced language processing.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                            Computer Vision/NLP/LLM
+                        </span>
+                        <a href="https://github.com/samthakur587/Edulens.git" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LLM Playground -->
+                <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-300" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">LLM Playground</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Docker</span>
+                                <span class="skill-badge">GCP</span>
+                                <span class="skill-badge">Streamlit</span>
+                                <span class="skill-badge">LLMs</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/samthakur587/LLM_playground" target="_blank" class="text-muted">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-muted mb-6 flex-1 leading-relaxed">
+                        Chatbot Arena: Benchmarking LLMs in the Wild. A chat interface where users enter prompts and simultaneously see outputs from two chosen LLMs for comparison.
+                    </p>
+
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="skill-badge flex items-center">
+                            <i data-lucide="message-square" class="w-3 h-3 mr-1"></i>
+                            NLP / LLM
+                        </span>
+                        <a href="https://github.com/samthakur587/LLM_playground" target="_blank" class="flex items-center" style="color: hsl(var(--primary)); font-size: 0.875rem;">
+                            View Project
+                            <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sign Language Detection -->
                 <!-- Sign Language Detection -->
                 <div class="project-card glass-card p-6 animate-fade-in-up animation-delay-100" style="border-color: hsl(var(--primary) / 0.5); height: 100%; display: flex; flex-direction: column;">
                     <div class="flex justify-between items-start mb-4">
@@ -1052,7 +1193,6 @@
                     <span class="skill-badge text-center">Redis</span>
                     <span class="skill-badge text-center">MongoDB</span>
                     <span class="skill-badge text-center">PostgreSQL</span>
-                    <span class="skill-badge text-center">React</span>
                 </div>
             </div>
 
