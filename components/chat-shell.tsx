@@ -124,7 +124,7 @@ export function ChatShell() {
         <div
           className={`mt-auto ${hasMessages ? "border-t border-white/40 bg-white/35 backdrop-blur-md" : ""}`}
         >
-          <div className="py-3">
+          <div className="py-1.5 sm:py-3">
             <TopicChips onSelect={handleChip} />
           </div>
           <ChatInput

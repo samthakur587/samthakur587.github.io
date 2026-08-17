@@ -15,7 +15,7 @@ export function ChatInput({
 }) {
   return (
     <form
-      className="mx-auto w-full max-w-3xl px-4 pb-6 pt-2"
+      className="mx-auto w-full max-w-3xl px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-1 sm:px-4 sm:pb-6 sm:pt-2"
       onSubmit={(event) => {
         event.preventDefault();
         onSubmit();
@@ -27,7 +27,7 @@ export function ChatInput({
           onChange={(event) => onChange(event.target.value)}
           placeholder="Ask me anything…"
           disabled={disabled}
-          className="h-11 flex-1 bg-transparent text-sm text-stone-900 outline-none placeholder:text-stone-400"
+          className="h-9 flex-1 bg-transparent text-sm text-stone-900 outline-none placeholder:text-stone-400 sm:h-11"
         />
         <button
           type="submit"

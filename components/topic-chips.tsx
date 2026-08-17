@@ -24,7 +24,7 @@ export function TopicChips({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3 px-4">
+    <div className="flex items-center justify-center gap-1 px-3 sm:gap-3 sm:px-4">
       {topics.map((topic, index) => {
         const Icon = chipMeta[topic.id].icon;
         return (
@@ -36,11 +36,11 @@ export function TopicChips({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 + index * 0.06, duration: 0.4 }}
-            whileHover={{ y: -5, scale: 1.04 }}
+            whileHover={{ y: -3, scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="flex min-w-[92px] flex-col items-center gap-1.5 rounded-2xl border border-white/70 bg-white/75 px-4 py-3 text-sm font-medium text-stone-800 shadow-sm backdrop-blur-md transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex min-w-0 flex-1 flex-col items-center gap-0.5 rounded-xl border border-stone-200/80 bg-white/90 px-1 py-1.5 text-[11px] font-medium text-stone-800 shadow-sm sm:min-w-[92px] sm:flex-none sm:gap-1.5 sm:rounded-2xl sm:border-white/70 sm:bg-white/75 sm:px-4 sm:py-3 sm:text-sm sm:backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <Icon className={`h-5 w-5 ${chipMeta[topic.id].iconClass}`} />
+            <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${chipMeta[topic.id].iconClass}`} />
             {topic.label}
           </motion.button>
         );
