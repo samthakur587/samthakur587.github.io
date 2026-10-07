@@ -1,28 +1,32 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Outfit } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const plex = IBM_Plex_Sans({
+  variable: "--font-plex",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "Samunder Singh | Design Engineer, C-DAC Bangalore",
   description:
-    "AI-native portfolio of Samunder Singh — Design Engineer at C-DAC Bengaluru working on edge LLMs, Vision AI, GPU software stacks, and open source.",
+    "Samunder Singh — Design Engineer at C-DAC Bengaluru. Edge LLMs, Vision AI, GPU software, and open source.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${outfit.variable} ${instrument.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white font-sans text-stone-900">
+    <html
+      lang="en"
+      className={`${plex.variable} ${plexMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-background font-sans text-foreground">
         {children}
       </body>
     </html>
